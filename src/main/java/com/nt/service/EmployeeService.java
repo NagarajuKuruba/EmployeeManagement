@@ -1,5 +1,7 @@
 package com.nt.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,14 @@ public class EmployeeService {
 	public Employee saveEmployee(Employee em) {
 		Employee st = emrepo.save(em);
 		return st;
+	}
+	public Employee getEmployeeById(int id) {
+		Optional<Employee> optinal = emrepo.findById(id);
+		Employee eee=null;
+		if(optinal.isPresent()) {
+			eee=optinal.get();
+		}
+		return eee;
 	}
 
 }
