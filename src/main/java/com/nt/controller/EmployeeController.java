@@ -3,6 +3,7 @@ package com.nt.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,14 @@ public class EmployeeController {
 	public List<Employee> getEmoployeeDetails(){
 		return emser.getEmployeeDetails();
 	}
+
+	@DeleteMapping("/delete/{id}")
+	public String DeleteEmployee(@PathVariable("id")int id){
+		String ed=emser.deleteEmployee(id);
+		return ed;
+		
+		
 	
 
+	}
 }
